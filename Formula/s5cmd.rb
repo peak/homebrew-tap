@@ -5,21 +5,21 @@
 class S5cmd < Formula
   desc "Parallel S3 and local filesystem execution tool"
   homepage "https://github.com/peak/s5cmd"
-  version "2.1.0-beta.1"
+  version "2.1.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/peak/s5cmd/releases/download/v2.1.0-beta.1/s5cmd_2.1.0-beta.1_macOS-arm64.tar.gz"
-      sha256 "4bf98bce34bb8dec5b3646bc33dc71100f0e8fd6f35f0ec75fbc4836869c07fe"
+    if Hardware::CPU.intel?
+      url "https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_macOS-64bit.tar.gz"
+      sha256 "096a6dc9047855a16b266868bedd9bd89370e5c64763ad3fe4d436c85b7fec3c"
 
       def install
         bin.install "s5cmd"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/peak/s5cmd/releases/download/v2.1.0-beta.1/s5cmd_2.1.0-beta.1_macOS-64bit.tar.gz"
-      sha256 "d23371ecd3b581409d05fc1289efa321ecb7065ca8b5197fe7c9d767dc4e1c29"
+    if Hardware::CPU.arm?
+      url "https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_macOS-arm64.tar.gz"
+      sha256 "1638d9497cfe3133fa0a83c3c618f5cefddab099810f40dd9174640ecff1a952"
 
       def install
         bin.install "s5cmd"
@@ -28,25 +28,25 @@ class S5cmd < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/peak/s5cmd/releases/download/v2.1.0-beta.1/s5cmd_2.1.0-beta.1_Linux-armv6.tar.gz"
-      sha256 "4748b2465ad12a28f195c5d2c2bf8eb7e1e1784a7061f263f57082ed4ba1602b"
+    if Hardware::CPU.intel?
+      url "https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_Linux-64bit.tar.gz"
+      sha256 "5f3e6abbb0d71fba1cf2c7884635828af3d151c4795d0d1827f623e2f52bfab0"
 
       def install
         bin.install "s5cmd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/peak/s5cmd/releases/download/v2.1.0-beta.1/s5cmd_2.1.0-beta.1_Linux-arm64.tar.gz"
-      sha256 "f64dcaabbb837ce223d716c9e64b4829e5cd780f151a42f2d2cb7edccedb7b06"
+      url "https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_Linux-arm64.tar.gz"
+      sha256 "6eef03a90853fb0ad12237e912031af033b3312e4d340c0e40923a991e988142"
 
       def install
         bin.install "s5cmd"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/peak/s5cmd/releases/download/v2.1.0-beta.1/s5cmd_2.1.0-beta.1_Linux-64bit.tar.gz"
-      sha256 "de5efa37941ef83e892662aefc936603a1a8acbc5a6a9e003a71721a7140b610"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_Linux-armv6.tar.gz"
+      sha256 "7d351296e28999321a6d1325118dc448e7a099964d312363005e48be984c1aff"
 
       def install
         bin.install "s5cmd"
